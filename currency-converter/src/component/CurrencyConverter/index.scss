@@ -1,0 +1,78 @@
+@import "../../assets/index.scss";
+
+.currencyConverter {
+  width: 100%;
+  max-width: 310px;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .converter-box {
+    width: 100%;
+    padding: 26px;
+    background: linear-gradient(
+        136.32deg,
+        rgba(58, 60, 64, 0.4) 1.49%,
+        rgba(255, 255, 255, 0.304174) 97.46%
+      ),
+      $bg;
+    background-blend-mode: soft-light, normal;
+    box-shadow: -10px -10px 15px $white,
+      10px 10px 15px rgba(202, 206, 220, 0.623771);
+    border-radius: 10px;
+    margin-bottom: 40px;
+  }
+
+  label{
+      @include font($ff-01, 14px, 400, $text);
+      margin-bottom: 6px;
+      display: block;
+  }
+
+  .pattern{
+      margin-top: 10px;
+  }
+
+  .input_wrapper{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      input{
+          margin-right: 24px;
+          padding: 0 10px;
+      }
+
+      .selectBox{
+          width: 135px;
+      }
+  }
+}
+
+.output{
+  @include font($ff-01, 26px, 400, $text-dark);
+
+}
+
+.btn-blue {
+  background: linear-gradient(
+      136.32deg,
+      rgba(58, 60, 64, 0.4) 1.49%,
+      rgba(255, 255, 255, 0.304174) 97.46%
+    ),
+    $blue;
+  background-blend-mode: soft-light, normal;
+  border: none;
+  border-radius: 10px;
+  box-shadow: -7px -7px 10px rgba(255, 255, 255, 0.5),
+    7px 7px 10px rgba(119, 148, 214, 0.538134);
+  @include font($ff-01, 16px, bold, $white);
+  line-height: 18px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  padding: 19px;
+  width: 100%;
+}
