@@ -7,13 +7,14 @@ import RateValue from "./RateValue";
 import axios from "axios";
 // import rates from '../../data/rates.json'
 
+
 class CurrencyConverter extends Component {
   constructor(props) {
     super(props);
     this.state = {
       selectOptions: [],
-      id: "",
-      name: "",
+      // id: "",
+      // name: "",
     };
   }
 
@@ -22,15 +23,17 @@ class CurrencyConverter extends Component {
     const data = res.data;
 
     const options = data.map((d) => ({
-      value: d.id,
+      value: d.value,
       label: d.code,
     }));
 
+
     this.setState({ selectOptions: options });
+
   }
 
   handleChange(e) {
-    this.setState({ id: e.value, code: e.label });
+    this.setState({ value: e.value, code: e.label });
   }
 
   componentDidMount() {
@@ -75,6 +78,7 @@ class CurrencyConverter extends Component {
       }),
     };
 
+
     return (
       <div className="container">
         <div className="currencyConverter">
@@ -82,7 +86,7 @@ class CurrencyConverter extends Component {
             <div className="wrapper">
               <label>From</label>
               <div className="input_wrapper">
-                <input type="text" value="1"/>
+                <input type="text" defaultValue="1" />
                 <div className="selectBox">
                   <Select
                     options={this.state.selectOptions}
@@ -99,6 +103,13 @@ class CurrencyConverter extends Component {
               <label>To</label>
               <div className="input_wrapper">
                 <RateValue />
+                <div className="selectBox">
+                  <Select
+                    options={this.state.selectOptions}
+                    onChange={this.handleChange.bind(this)}
+                    styles={selectStyles}
+                  />
+                </div>
               </div>
             </div>
           </div>
